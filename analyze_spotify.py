@@ -48,7 +48,6 @@ for artist in artists_sorted:
     elif artist[1] in artist_top_num_tracks:
         artist_top.append(artist[0])
 
-top_year_index = [value for key, value in album_release_year.items()].index(max([value for key, value in album_release_year.items()]))
-top_year = [key for key, value in album_release_year.items()][top_year_index]
+top_year = sorted(album_release_year.items(), key = lambda x: x[1], reverse=True)[0][0]
 
 print(f"{danceability_avg}\n{liveness_avg}\n{artist_top}\n{top_year}")
